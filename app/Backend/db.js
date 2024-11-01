@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Define your MongoDB connection string
 const mongoDB = async () => {
   try {
     // Establish MongoDB connection
-    await mongoose.connect('mongodb+srv://foodapp:Adarsh%40123@cluster0.9bqb4.mongodb.net/Khana', {
+    let mongoUrl = process.env.MONGO_URL 
+    await mongoose.connect(mongoUrl, {
       useNewUrlParser: true,    // Optional
       useUnifiedTopology: true, // Optional
     });
